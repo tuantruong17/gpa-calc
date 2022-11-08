@@ -1,23 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import SectionDivider from "./component/SectionDivider";
+import CumulativeGrid from "./component/CumulativeGrid";
+import { useState } from "react";
+import ReviewGrid from "./component/ReviewGrid";
 
 function App() {
+  const [cumulativeHour, setCumulativeHour] = useState(0);
+  const [cumulativePoint, setCumulativePoint] = useState(0);
+  const [course, setCourse] = useState([]);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+    <div className="App-body">
+      <h1>GPA Calculator</h1>
+      <div className="App-container">
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          This GPA calculator was designed for Augustana College grading system.
+          These calculations should not be considered your official GPA at
+          Augustana College or any other institution.
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <p>
+          This GPA calculator should be used for undergraduate and graduate
+          students only . This calculator does not take into consideration law
+          GPA calculation.
+        </p>
+        <p>( * marks required fields )</p>
+        <SectionDivider header={"Current Cumulative Information"} />
+        <CumulativeGrid
+          setHour={setCumulativeHour}
+          setPoint={setCumulativePoint}
+        ></CumulativeGrid>
+        <SectionDivider header={"Semester Information"} />
+        <SectionDivider header={"GPA Totals"} />
+        <ReviewGrid
+          cumulativeHour={cumulativeHour}
+          cumulativePoint={cumulativePoint}
+        />
+      </div>
     </div>
   );
 }

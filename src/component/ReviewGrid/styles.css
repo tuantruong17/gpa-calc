@@ -1,0 +1,13 @@
+.review-row {
+    display: flex;
+    flex-direction: row;
+}
+  
+.review-col {
+    flex: 1;
+    margin: 8px;
+}
+
+.header {
+    font-weight: bold;
+}

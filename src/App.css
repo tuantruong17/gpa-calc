@@ -1,5 +1,10 @@
-.App {
-  text-align: center;
+.App-body {
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+.App-container {
+  width: 80%;
 }
 
 .App-logo {
