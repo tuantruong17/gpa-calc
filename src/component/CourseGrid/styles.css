@@ -1,0 +1,25 @@
+.course-row {
+    display: flex;
+    flex-direction: row;
+}
+  
+.course-col {
+    flex: 1;
+    margin: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.course-col input {
+    width: calc(100% - 16px);
+    padding: 8px;
+}
+
+.course-button {
+    margin: 8px;
+}
+
+.course-footer {
+    text-align: center;
+}

@@ -3,11 +3,19 @@ import SectionDivider from "./component/SectionDivider";
 import CumulativeGrid from "./component/CumulativeGrid";
 import { useState } from "react";
 import ReviewGrid from "./component/ReviewGrid";
+import CourseGrid from "./component/CourseGrid";
 
 function App() {
   const [cumulativeHour, setCumulativeHour] = useState(0);
+  const initCourses = [
+    { creditHour: "", grade: 4, isMajor: true },
+    { creditHour: "", grade: 3, isMajor: false },
+    { creditHour: "", grade: 2, isMajor: true },
+    { creditHour: "", grade: 3, isMajor: false },
+    { creditHour: "", grade: 2, isMajor: true },
+  ];
   const [cumulativePoint, setCumulativePoint] = useState(0);
-  const [course, setCourse] = useState([]);
+  const [courses, setCourses] = useState(initCourses);
   return (
     <div className="App-body">
       <h1>GPA Calculator</h1>
@@ -29,6 +37,7 @@ function App() {
           setPoint={setCumulativePoint}
         ></CumulativeGrid>
         <SectionDivider header={"Semester Information"} />
+        <CourseGrid courses={courses}></CourseGrid>
         <SectionDivider header={"GPA Totals"} />
         <ReviewGrid
           cumulativeHour={cumulativeHour}
