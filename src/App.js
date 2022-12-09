@@ -7,15 +7,30 @@ import CourseGrid from "./component/CourseGrid";
 
 function App() {
   const [cumulativeHour, setCumulativeHour] = useState(0);
-  const initCourses = [
-    { creditHour: "", grade: 4, isMajor: true },
-    { creditHour: "", grade: 3, isMajor: false },
-    { creditHour: "", grade: 2, isMajor: true },
-    { creditHour: "", grade: 3, isMajor: false },
-    { creditHour: "", grade: 2, isMajor: true },
-  ];
   const [cumulativePoint, setCumulativePoint] = useState(0);
+
+  const initCourses = [
+    { creditHour: "", letterGrade: "", isMajor: false },
+    { creditHour: "", letterGrade: "", isMajor: false },
+    { creditHour: "", letterGrade: "", isMajor: false },
+    { creditHour: "", letterGrade: "", isMajor: false },
+    { creditHour: "", letterGrade: "", isMajor: false },
+  ];
   const [courses, setCourses] = useState(initCourses);
+
+  const letterToPoints = {
+    A: 4,
+    "A-": 3.67,
+    "B+": 3.33,
+    B: 3,
+    "B-": 2.67,
+    "C+": 2.33,
+    C: 2,
+    "C-": 1.67,
+    D: 1,
+    F: 0,
+  };
+
   return (
     <div className="App-body">
       <h1>GPA Calculator</h1>
@@ -37,11 +52,21 @@ function App() {
           setPoint={setCumulativePoint}
         ></CumulativeGrid>
         <SectionDivider header={"Semester Information"} />
-        <CourseGrid courses={courses}></CourseGrid>
+        <CourseGrid
+          courses={courses}
+          setCourses={setCourses}
+          letterToPoints={letterToPoints}
+        ></CourseGrid>
         <SectionDivider header={"GPA Totals"} />
         <ReviewGrid
           cumulativeHour={cumulativeHour}
           cumulativePoint={cumulativePoint}
+          courses={courses.filter(
+            (course) =>
+              course.creditHour > 0 &&
+              letterToPoints[course.letterGrade] !== undefined
+          )}
+          letterToPoints={letterToPoints}
         />
       </div>
     </div>

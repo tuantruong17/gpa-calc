@@ -1,5 +1,18 @@
 import "./styles.css";
 function ReviewGrid(prop) {
+  const sumSemesterCreditHour = prop.courses.reduce(
+    (a, b) => a + +b.creditHour,
+    0
+  );
+
+  const sumSemesterPoint = prop.courses.reduce(
+    (a, b) => a + prop.letterToPoints[b.letterGrade] * b.creditHour,
+    0
+  );
+
+  const sumCreditHour = sumSemesterCreditHour + prop.cumulativeHour;
+  const sumPoint = sumSemesterPoint + prop.cumulativePoint;
+
   return (
     <>
       <div className="review-row header">
@@ -11,15 +24,29 @@ function ReviewGrid(prop) {
       <div className="review-row">
         <div className="review-col">Cumulative</div>
         <div className="review-col">
-          {prop.cumulativeHour === 0 ? "" : prop.cumulativeHour}
+          {sumCreditHour === 0 ? "" : sumCreditHour}
         </div>
         <div className="review-col">
-          {prop.cumulativePoint === 0 ? "" : prop.cumulativePoint.toFixed(2)}
+          {sumPoint === 0 ? "" : sumPoint.toFixed(2)}
         </div>
         <div className="review-col">
-          {prop.cumulativeHour === 0 || prop.cumulativePoint === 0
+          {sumCreditHour === 0 || sumPoint === 0
             ? ""
-            : (prop.cumulativePoint / prop.cumulativeHour).toFixed(4)}
+            : (sumPoint / sumCreditHour).toFixed(4)}
+        </div>
+      </div>
+      <div className="review-row">
+        <div className="review-col">Semester</div>
+        <div className="review-col">
+          {sumSemesterCreditHour === 0 ? "" : sumSemesterCreditHour}
+        </div>
+        <div className="review-col">
+          {sumSemesterPoint === 0 ? "" : sumSemesterPoint.toFixed(2)}
+        </div>
+        <div className="review-col">
+          {sumSemesterCreditHour === 0 || sumSemesterPoint === 0
+            ? ""
+            : (sumSemesterPoint / sumSemesterCreditHour).toFixed(4)}
         </div>
       </div>
     </>

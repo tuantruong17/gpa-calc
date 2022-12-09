@@ -6,29 +6,28 @@ function CourseGrid(prop) {
     courses: prop.courses.map((element) => ({ ...element })),
   });
 
-  const letterToPoints = {
-    A: 4,
-    "A-": 3.67,
-    "B+": 3.33,
-    B: 3,
-    "B-": 2.67,
-    "C+": 2.33,
-    C: 2,
-    "C-": 1.67,
-    D: 1,
-    F: 0,
+  const setCourses = (state) => {
+    setState(state);
+    prop.setCourses(state.courses);
   };
 
   const handleDeleteRow = (i) => {
-    setState({ courses: state.courses.filter((_, idx) => i !== idx) });
+    setCourses({ courses: state.courses.filter((_, idx) => i !== idx) });
   };
 
   const handleResetRow = (i) => {
-    console.log(state.courses);
+    setCourses({
+      courses: state.courses.map((course, idx) => {
+        if (idx === i) {
+          return { creditHour: "", letterGrade: "", isMajor: false };
+        }
+        return course;
+      }),
+    });
   };
 
   const handleCreditHourChange = (i, val) => {
-    setState({
+    setCourses({
       courses: state.courses.map((course, idx) => {
         if (idx === i) {
           return { ...course, creditHour: val };
@@ -38,8 +37,45 @@ function CourseGrid(prop) {
     });
   };
 
-  const getGradePoints = (course) =>
-    (course.grade * course.creditHour).toFixed(2);
+  const handleLetterGradeChange = (i, val) => {
+    setCourses({
+      courses: state.courses.map((course, idx) => {
+        if (idx === i) {
+          return { ...course, letterGrade: val.toUpperCase() };
+        }
+        return course;
+      }),
+    });
+  };
+
+  const getGradePoints = (course) => {
+    const grade = prop.letterToPoints[course.letterGrade] ?? -1;
+    if (grade === -1 || +course.creditHour === 0) {
+      return "";
+    }
+    return (grade * course.creditHour).toFixed(2);
+  };
+
+  const handleResetSemester = () => {
+    setCourses({
+      courses: [
+        { creditHour: "", letterGrade: "", isMajor: false },
+        { creditHour: "", letterGrade: "", isMajor: false },
+        { creditHour: "", letterGrade: "", isMajor: false },
+        { creditHour: "", letterGrade: "", isMajor: false },
+        { creditHour: "", letterGrade: "", isMajor: false },
+      ],
+    });
+  };
+
+  const handleAddNewRow = () => {
+    setCourses({
+      courses: [
+        ...state.courses,
+        { creditHour: "", letterGrade: "", isMajor: false },
+      ],
+    });
+  };
 
   return (
     <>
@@ -64,7 +100,12 @@ function CourseGrid(prop) {
             />
           </div>
           <div className="course-col">
-            <input type="text" />
+            <input
+              style={{ textTransform: "uppercase" }}
+              type="text"
+              value={course.letterGrade}
+              onChange={(e) => handleLetterGradeChange(i, e.target.value)}
+            />
           </div>
           <div className="course-col">
             <input type="checkbox" />
@@ -84,8 +125,22 @@ function CourseGrid(prop) {
         </div>
       ))}
       <div className="course-footer">
-        <button className="course-button">Reset Semester Info</button>
-        <button className="course-button">Add New Row</button>
+        <button
+          className="course-button"
+          onClick={() => {
+            handleResetSemester();
+          }}
+        >
+          Reset Semester Info
+        </button>
+        <button
+          className="course-button"
+          onClick={() => {
+            handleAddNewRow();
+          }}
+        >
+          Add New Row
+        </button>
       </div>
     </>
   );
