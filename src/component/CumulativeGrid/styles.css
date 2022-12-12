@@ -1,6 +1,8 @@
+@import '../../constants/colors.css';
 .cumulative-row {
     display: flex;
     flex-direction: row;
+    align-items: flex-end;
 }
   
 .cumulative-col {
@@ -13,8 +15,26 @@
     padding: 8px;
 }
 
-.title {
+.cumulative-col .title {
     text-align: center;
     font-weight: bold;
     margin: 4px;
+}
+
+.cumulative-col .title i {
+    color: var(--blue);
+}
+
+.cumulative-button {
+    font-family: "Libre Franklin",Arial,Helvetica,sans-serif;
+    padding: 8px;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    background-color: var(--blue);
+}
+
+.cumulative-button:hover {
+    color: var(--gold);
+    background-color: var(--sky-blue);
 }

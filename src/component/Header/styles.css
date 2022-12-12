@@ -1,0 +1,15 @@
+@import '../../constants/colors.css';
+
+.header-wrapper {
+    margin: 0 auto;
+    width: 1200px;
+    padding: 20px 0;
+}
+
+.college-name {
+    width: 350px;
+}
+
+.college-name svg { 
+    fill: var(--blue);
+}

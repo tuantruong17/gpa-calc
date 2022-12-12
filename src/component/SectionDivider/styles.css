@@ -1,5 +1,6 @@
+@import '../../constants/colors.css';
 .Section-header {
-    border-top: 5px solid #00437b;
-    padding: 12px;
-    margin-top: 24px;
-  }
+  border-top: 5px solid var(--blue);
+  padding: 12px;
+  margin-top: 24px;
+}

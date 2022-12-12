@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Tooltip from "@material-ui/core/Tooltip";
 import "./styles.css";
 
 function CumulativeGrid(prop) {
@@ -27,19 +28,39 @@ function CumulativeGrid(prop) {
     <>
       <div className="cumulative-row">
         <div className="cumulative-col">
-          <div className="title">Total GPA hours</div>
+          <div className="title">
+            Total GPA hours
+            <Tooltip
+              title="Cumulative attempted (Att) credits from your transcript"
+              placement="top"
+            >
+              <span>
+                &nbsp;<i class="fa fa-info-circle"></i>
+              </span>
+            </Tooltip>
+          </div>
           <input value={hourInput} type="number" onChange={handleHourChange} />
         </div>
+        <div className="cumulative-col"></div>
         <div className="cumulative-col">
-          <div className="title">Total grade points</div>
+          <div className="title">
+            Total quality points
+            <Tooltip
+              title="Cumulative quality points (Qty Pts) from your transcript"
+              placement="top"
+            >
+              <span>
+                &nbsp;<i class="fa fa-info-circle"></i>
+              </span>
+            </Tooltip>
+          </div>
           <input value={pointInput} type="number" onChange={handleGpaChange} />
         </div>
         <div className="cumulative-col"></div>
-      </div>
-
-      <div className="cumulative-row">
         <div className="cumulative-col">
-          <button onClick={handleReset}>Reset Cumulative Info</button>
+          <button className="cumulative-button" onClick={handleReset}>
+            Reset Cumulative Info
+          </button>
         </div>
       </div>
     </>

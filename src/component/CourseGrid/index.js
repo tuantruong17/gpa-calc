@@ -83,7 +83,6 @@ function CourseGrid(prop) {
         <div className="course-col title">Dept & Course</div>
         <div className="course-col title">Credit Hours</div>
         <div className="course-col title">Grade</div>
-        <div className="course-col title">Major / Program GPA</div>
         <div className="course-col title">Grade Points</div>
         <div className="course-col"></div>
       </div>
@@ -106,9 +105,6 @@ function CourseGrid(prop) {
               value={course.letterGrade}
               onChange={(e) => handleLetterGradeChange(i, e.target.value)}
             />
-          </div>
-          <div className="course-col">
-            <input type="checkbox" />
           </div>
           <div className="course-col">{getGradePoints(course)}</div>
           <div className="course-col">
