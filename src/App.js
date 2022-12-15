@@ -41,10 +41,11 @@ function App() {
         <div className="App-container">
           <p>
             This GPA calculator is designed for the grading system at Augustana
-            College in Rock Island, IL Use your unofficial transcript, available
-            in Arches, to enter current cumulative information. If you need
-            assistance using this calculator, see your advisor or visit the
-            Office of Advising in Olin 320.
+            College in Rock Island, IL <br />
+            Use your unofficial transcript, available in Arches, to enter
+            current cumulative information. If you need assistance using this
+            calculator, see your advisor or visit the Office of Advising in Olin
+            320.
             <br />
             Helpful resources: Augustana's{" "}
             <a href="https://www.augustana.edu/academics/catalog/academic-policies/grading">
