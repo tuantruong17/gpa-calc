@@ -17,7 +17,7 @@ function ReviewGrid(prop) {
     <>
       <div className="review-row header">
         <div className="review-col">GPA Type</div>
-        <div className="review-col"># of Credits</div>
+        <div className="review-col"># of Att Credits</div>
         <div className="review-col">Grade Points</div>
         <div className="review-col">GPA</div>
       </div>

@@ -44,19 +44,29 @@ function App() {
             College in Rock Island, IL Use your unofficial transcript, available
             in Arches, to enter current cumulative information. If you need
             assistance using this calculator, see your advisor or visit the
-            Office of Advising in Olin 320. For more information on the
-            Augustana College grading system, click{" "}
+            Office of Advising in Olin 320.
+            <br />
+            Helpful resources: Augustana's{" "}
             <a href="https://www.augustana.edu/academics/catalog/academic-policies/grading">
-              here
+              Grading System
+            </a>{" "}
+            and{" "}
+            <a href="https://www.augustana.edu/academics/catalog/academic-policies/academic-standing">
+              Academic Standing Policy
             </a>
+            .
           </p>
           <p>( * marks required fields )</p>
-          <SectionDivider header={"Current Cumulative Information"} />
+          <SectionDivider
+            header={
+              "Current Cumulative Information (Do not include courses in progress.)"
+            }
+          />
           <CumulativeGrid
             setHour={setCumulativeHour}
             setPoint={setCumulativePoint}
           ></CumulativeGrid>
-          <SectionDivider header={"Semester Information"} />
+          <SectionDivider header={"Current Semester Information"} />
           <CourseGrid
             courses={courses}
             setCourses={setCourses}

@@ -29,7 +29,7 @@ function CumulativeGrid(prop) {
       <div className="cumulative-row">
         <div className="cumulative-col">
           <div className="title">
-            Total GPA hours
+            Total Att Credits
             <Tooltip
               title="Cumulative attempted (Att) credits from your transcript"
               placement="top"
@@ -44,7 +44,7 @@ function CumulativeGrid(prop) {
         <div className="cumulative-col"></div>
         <div className="cumulative-col">
           <div className="title">
-            Total quality points
+            Total Quality Points
             <Tooltip
               title="Cumulative quality points (Qty Pts) from your transcript"
               placement="top"
