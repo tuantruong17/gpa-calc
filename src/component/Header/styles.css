@@ -1,9 +1,14 @@
 @import '../../constants/colors.css';
 
+@media only screen and (min-width: 1200px) {
+    .header-wrapper {
+        margin: 0 auto;
+        width: 1200px;
+    }
+}
+
 .header-wrapper {
-    margin: 0 auto;
-    width: 1200px;
-    padding: 20px 0;
+    padding: 20px 8px;
 }
 
 .college-name {
