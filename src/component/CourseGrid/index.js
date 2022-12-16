@@ -102,12 +102,18 @@ function CourseGrid(prop) {
             />
           </div>
           <div className="course-col">
-            <input
+			<select value={course.letterGrade} onChange={(e) => handleLetterGradeChange(i, e.target.value)}>
+				<option value=""></option>
+			    {Object.keys(prop.letterToPoints).map((key, index) => (
+					<option value={key}>{key}</option>
+				))}
+			</select>
+            {/*<input
               style={{ textTransform: "uppercase" }}
               type="text"
               value={course.letterGrade}
               onChange={(e) => handleLetterGradeChange(i, e.target.value)}
-            />
+            />*/}
           </div>
           <div className="course-col">{getGradePoints(course)}</div>
           <div className="course-col">
