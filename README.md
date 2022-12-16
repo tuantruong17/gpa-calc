@@ -1,4 +1,15 @@
-# Getting Started with Create React App
+# GPA Calculator for Augustana Students
+
+Currently hosted by GitHub Pages at: https://augustanacomputerscienceprojects.github.io/gpa-calc/
+
+This GPA calculator is designed for the grading system at Augustana College in Rock Island, IL.  
+
+This calculator can help students predict what your semester and cumulative GPA will be (after the current semester is over), based on estimated final grades in each current course.
+
+Originally development by Tuan Truong (class of '22), with a few enhancements by Dr. Forrest Stonedahl (independent study supervisor).  
+If new features or modifications are required in the future, it may be maintained by other Augustana computer science students.
+
+## Development Information
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -25,9 +36,10 @@ Builds the app for production to the `build` folder.\
 It correctly bundles React in production mode and optimizes the build for the best performance.
 
 The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### `npm run deploy`
+
+Uses **gh-pages** to push the static build to the gh-pages branch on GitHub, which is then automatically served on GitHub pages.
 
 ### `npm run eject`
 
