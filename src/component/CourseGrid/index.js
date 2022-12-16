@@ -1,5 +1,8 @@
 import { useState } from "react";
+import { FaTrash } from 'react-icons/fa';
 import "./styles.css";
+
+
 function CourseGrid(prop) {
   // shallow copy all courses
   const [state, setState] = useState({
@@ -115,7 +118,7 @@ function CourseGrid(prop) {
               className="course-button"
               onClick={() => handleDeleteRow(i)}
             >
-              Delete
+              <FaTrash />
             </button>
           </div>
         </div>
