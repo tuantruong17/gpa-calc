@@ -9,6 +9,8 @@ This calculator can help students predict what your semester and cumulative GPA 
 Originally development by Tuan Truong (class of '22), with a few enhancements by Dr. Forrest Stonedahl (independent study supervisor).  
 If new features or modifications are required in the future, it may be maintained by other Augustana computer science students.
 
+SHORT VERSION: make desired edits, then execute "npm run deploy" to automatically push it up to github pages (gh-pages branch in repo).  The change should show up within a few minutes on the live site.
+
 ## Development Information
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
