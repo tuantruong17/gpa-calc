@@ -1,5 +1,8 @@
 import { useState } from "react";
+import { FaTrash } from 'react-icons/fa';
 import "./styles.css";
+
+
 function CourseGrid(prop) {
   // shallow copy all courses
   const [state, setState] = useState({
@@ -99,12 +102,18 @@ function CourseGrid(prop) {
             />
           </div>
           <div className="course-col">
-            <input
+			<select value={course.letterGrade} onChange={(e) => handleLetterGradeChange(i, e.target.value)}>
+				<option value=""></option>
+			    {Object.keys(prop.letterToPoints).map((key, index) => (
+					<option value={key}>{key}</option>
+				))}
+			</select>
+            {/*<input
               style={{ textTransform: "uppercase" }}
               type="text"
               value={course.letterGrade}
               onChange={(e) => handleLetterGradeChange(i, e.target.value)}
-            />
+            />*/}
           </div>
           <div className="course-col">{getGradePoints(course)}</div>
           <div className="course-col">
@@ -115,7 +124,7 @@ function CourseGrid(prop) {
               className="course-button"
               onClick={() => handleDeleteRow(i)}
             >
-              Delete
+              <FaTrash />
             </button>
           </div>
         </div>
